@@ -1,0 +1,133 @@
+\documentclass[12pt, letterpaper, titlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{amsthm}
+\usepackage{xtable}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{colorlinks = true, linkcolor = blue, citecolor=blue, urlcolor = blue}
+\usepackage{natbib}
+\usepackage{enumitem}
+\usepackage{setspace}
+
+\usepackage[pagewise]{lineno}
+%\linenumbers*[1]
+% %% patches to make lineno work better with amsmath
+\newcommand*\patchAmsMathEnvironmentForLineno[1]{%
+ \expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
+ \expandafter\let\csname oldend#1\expandafter\endcsname\csname end#1\endcsname
+ \renewenvironment{#1}%
+ {\linenomath\csname old#1\endcsname}%
+ {\csname oldend#1\endcsname\endlinenomath}}%
+\newcommand*\patchBothAmsMathEnvironmentsForLineno[1]{%
+ \patchAmsMathEnvironmentForLineno{#1}%
+ \patchAmsMathEnvironmentForLineno{#1*}}%
+
+\AtBeginDocument{%
+ \patchBothAmsMathEnvironmentsForLineno{equation}%
+ \patchBothAmsMathEnvironmentsForLineno{align}%
+ \patchBothAmsMathEnvironmentsForLineno{flalign}%
+ \patchBothAmsMathEnvironmentsForLineno{alignat}%
+ \patchBothAmsMathEnvironmentsForLineno{gather}%
+ \patchBothAmsMathEnvironmentsForLineno{multline}%
+}
+
+% control floats
+\renewcommand\floatpagefraction{.9}
+\renewcommand\topfraction{.9}
+\renewcommand\bottomfraction{.9}
+\renewcommand\textfraction{.1}
+\setcounter{totalnumber}{50}
+\setcounter{topnumber}{50}
+\setcounter{bottomnumber}{50}
+
+\newcommand{\jy}[1]{\textcolor{blue}{JY: #1}}
+\newcommand{\eds}[1]{\textcolor{red}{EDS: (#1)}}
+
+\title{Stats Paper}
+\author{Amy Traianou
+  Department of Statistics, University of Connecticut\\
+  }
+\date{Sep 2022}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+summary
+\end{abstract}
+
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+Intro
+
+\section*{Data Description}
+\addcontentsline{toc}{section}{Data Description}
+data
+
+\section*{Methods}
+\addcontentsline{toc}{section}{Methods}
+methods 
+Suppose the rdius of a circle is $r$. Then its area is 
+\begin{equation}
+ \label{eq:area}
+ \pi r^2.
+\end{equation}
+
+To reference an equation:
+Equation~\eqref{eq:area} is about the area of a circle. 
+
+An unnumbered equation looks like:
+\[
+f(x)=\frac{1}{\sqrt{2}}\exp\left( - \frac{x}{2} \ right),
+\]
+
+
+\section*{Results}
+\addcontentsline{toc}{section}{Results}
+results
+
+Example table:
+\begin{table}[ht]
+  \caption{This is a table.}
+  \label{tab:rv}
+\centering
+\begin{tabular}{rrr}
+  \hline
+normal & poisson & gamma \\ 
+  \hline
+-0.110 & 4 & 2.401 \\ 
+  0.116 & 4 & 3.529 \\ 
+  -0.828 & 9 & 2.112 \\ 
+  -0.066 & 6 & 11.104 \\ 
+  0.219 & 3 & 4.815 \\ 
+  0.303 & 5 & 2.188 \\ 
+  0.544 & 0 & 8.050 \\ 
+  -2.617 & 8 & 3.646 \\ 
+  0.747 & 1 & 5.178 \\ 
+  -1.103 & 4 & 3.043 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+Figure~\ref{fig:cars} shows the distance against the speed from this dataset.
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{cars.pdf}
+  \caption{This is my first figure.}
+  \label{fig:cars}
+\end{figure}
+
+
+\section*{Discussion}
+discuss
+
+\section*{References}
+references
+
+\end{document}
