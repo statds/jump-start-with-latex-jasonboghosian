@@ -1,2 +1,2 @@
 # jump-start-with-latex-jasonboghosian
-jump-start-with-latex-jasonboghosian created by GitHub Classroom
+Adding necessary folders for a statistical paper.
